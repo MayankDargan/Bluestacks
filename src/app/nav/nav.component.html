@@ -1,0 +1,48 @@
+
+<div class="container">
+    <h1><span>Manage</span> <b>Campaigns</b></h1>
+    <ul className="nav nav-pills nav-fill">
+        <li className="nav-item">
+            <a className="nav-link active" filter={Campaigns.SHOW_UPCOMING} href="#">Upcoming Campaigns</a>
+        </li>
+        <li className="nav-item">
+            <a className="nav-link" filter={Campaigns.SHOW_LIVE} href="#">Live Campaigns</a>
+        </li>
+        <li className="nav-item">
+            <a className="nav-link" filter={Campaigns.SHOW_PAST} href="#">Past Campaigns</a>
+        </li>
+    </ul>
+</div>
+<div class="container">
+  <table class="table table-reponsive table-bordered">
+    <thead>
+      <tr>
+        <td>DATE</td>
+        <td>CAMPAIGN</td>
+        <td>VIEW</td>
+        <td>ACTIONS</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let campaign of model">
+        <td>
+          {{campaign.date}}
+          <!-- <span *ngIf="new Date({{campaign.date}}) > new Date()">Math.ceil((new Date({{campaign.date}}) - new Date())/(1000 * 3600 * 24)) days ago </span> -->
+        </td>
+        <td>{{campaign.name}}
+          <span *ngFor="let country of campaign.country">
+              <small>{{country}} </small>
+          </span>
+        </td>
+        <td>
+          
+        </td>
+        <td>
+          <div>
+            <span><fa name="cog" animation="spin"></fa></span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
